@@ -1,0 +1,8 @@
+pandas>=2.2
+numpy>=1.26
+scipy>=1.13
+statsmodels>=0.14
+networkx>=3.3
+matplotlib>=3.9
+requests>=2.32
+pyarrow>=16.0
