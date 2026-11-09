@@ -77,6 +77,17 @@ python -m src.analysis.figures_phase5
 
 O TVL histórico das chains e os preços dos ativos bridged são coletados por `python -m src.collect.run` (a lista de ativos está em `src/build/bridge_assets.csv`). Resultados em `data/processed/chain_level_study.csv`, `chain_level_dose.csv` e `bridge_depeg_cases.csv`.
 
+### 6. Rede de dependências e contágio (H5)
+
+```bash
+python -m src.build.network            # famílias de fork, expostos e controles
+python -m src.collect.contagion        # TVL histórico dos expostos e controles
+python -m src.analysis.contagion       # diferenças em diferenças com efeito fixo de evento
+python -m src.analysis.figures_phase6
+```
+
+Resultados em `data/processed/contagion_did.csv`.
+
 Os passos seguintes serão documentados aqui conforme forem implementados.
 
 ## Fontes de dados
