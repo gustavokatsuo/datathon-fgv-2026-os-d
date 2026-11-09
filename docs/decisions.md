@@ -95,3 +95,27 @@ TVL:
 - Preço (n = 132, benchmark ETH): CAR médio de -17,4% em [0,+1] (mediana -14,2%, 87% dos eventos negativos) e de -28,1% em [0,+30] (mediana -19,2%). Significativo em todos os testes (t, BMP, Corrado, bootstrap, Wilcoxon) e nos três benchmarks. BHAR e CAR em log-retornos são ainda mais negativos. A queda se concentra no dia 0 (AAR de -16%) e continua lentamente até +30.
 - TVL (n = 125): fluxo anormal bruto de -36% do TVL em [0,+1] e -51% em [0,+30]. Descontado o roubo, o fluxo é próximo de zero nos primeiros dias (-0,4% em [0,+1], p = 0,88) e fica negativo e significativo em [0,+10] (-7,2%, p = 0,03) e em [0,+30] (-15,9%, mediana -9,0%, p < 0,01 em t, bootstrap e Wilcoxon). O BMP não rejeita para o fluxo líquido do roubo (p = 0,56 em [0,+30]), porque a padronização pelo desvio da linha de base dá peso extremo a protocolos de fluxo muito estável. Resultado igual sem as 10 exchanges centralizadas.
 - Leitura: a corrida bancária on-chain além do valor roubado existe, mas é gradual (semanas) e não imediata. O efeito preço no TVL é pequeno (cerca de -2%), então a queda do TVL é fluxo e não reprecificação dos ativos depositados.
+
+## Fase 4. Regressões em corte transversal (H2, H3)
+
+**2026-11-08. Especificação registrada antes de rodar.**
+
+Variáveis dependentes:
+- Preço: CAR[0,+1] (reação imediata, que é onde o sinal sobre o tipo de falha deve aparecer) e CAR[0,+30], benchmark ETH.
+- TVL: fluxo anormal descontado o roubo em [0,+30] (principal) e [0,+10].
+
+Regressores:
+- Tipo de falha (H2): dummies `operational` (chave ou infraestrutura e governança) e `economic` (oráculo ou preço), com base `code` (lógica de contrato e bridge). Versão secundária com as seis categorias (base: lógica de contrato), lembrando que governança tem 2 eventos e bridge 6.
+- Tamanho: log(perda/TVL(-1)) na especificação principal (n menor, só eventos com TVL) e log(perda) na alternativa (amostra completa de preço).
+- H3: `audited` (auditoria atual, limitação já registrada) e `funds_returned` (devolução pelo atacante de pelo menos 50%). Como a devolução costuma vir dias ou semanas depois, a interpretação de `funds_returned` só vale para CAR[0,+30] e fluxo [0,+30]. Ressarcimento de usuários tem 3 casos na amostra de preço e 2 na de TVL e não entra na regressão.
+- Controles: `bridge_hack`, estado do mercado (`bull` = retorno do ETH em [-120,-11] positivo, janela sem contaminação do evento), efeitos fixos de chain (Ethereum como base, BSC, Arbitrum, Solana e demais agrupadas) e, no TVL, dummy de exchange centralizada.
+- Inferência: MQO com erros robustos HC3 (amostra pequena).
+
+Robustez desta fase: variável dependente winsorizada em 1% e 99%, regressão mediana (quantílica), BHAR e CAR em log-retornos no lugar do CAR, categoria pela regra automática (`category_rule`, sem as revisões manuais), e TVL sem exchanges centralizadas. Com três hipóteses e várias janelas, um p-valor isolado próximo de 0,05 deve ser lido com cautela.
+
+**2026-11-08. Resultados da Fase 4.**
+- H2 não confirmada, e o teste tem pouco poder. Sem controles, falhas operacionais têm CAR[0,+1] médio de -24,9% (mediana -17,6%, n = 31) contra -15,8% (mediana -10,3%, n = 78) em bugs de código, na direção prevista. Com controles, a diferença operacional menos código é -7,2 p.p. (IC 95% de -19,3 a +4,9, p = 0,24). Efeito mínimo detectável com 80% de poder: cerca de 17 p.p. em [0,+1] e 38 p.p. em [0,+30]. Conclusão honesta: os dados descartam que falhas operacionais sejam punidas mais de cerca de 19 p.p. além de bugs de código, mas não conseguem detectar diferenças menores. Em [0,+30] não há diferença (-1,4 p.p.). Mesmo resultado em todas as robustezes (winsorização, mediana, BHAR, CAR em log, regra automática da taxonomia) e com as seis categorias.
+- H3 não confirmada. Auditoria (status atual) e devolução de fundos não têm coeficiente significativo em nenhuma especificação. Só 9 eventos com devolução na amostra de preço, então o teste também tem pouco poder.
+- Tamanho da perda: log(perda) entra negativo e significativo em CAR[0,+30] (-8,4 p.p. por log, p = 0,03, e mediana p = 0,04) e em CAR[0,+1] nas especificações robustas a outliers (mediana p = 0,007, BHAR p = 0,01, CAR em log p = 0,02). Perdas maiores, reação maior.
+- Efeito do tamanho no TVL não é identificável neste desenho: a parcela do roubo somada de volta tem correlação de 0,85 com log(perda/TVL), o que gera coeficiente positivo mecânico no fluxo líquido do roubo e negativo mecânico no fluxo bruto. Não interpretamos esse coeficiente.
+- Estado do mercado, bridge e exchange centralizada não são significativos.

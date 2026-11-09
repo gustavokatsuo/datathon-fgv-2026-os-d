@@ -59,6 +59,15 @@ python -m src.analysis.figures_phase3  # figuras em figures/
 
 Tabelas resumo em `data/processed/price_event_study.csv` e `data/processed/tvl_event_study.csv`.
 
+### 4. Regressões em corte transversal (H2, H3)
+
+```bash
+python -m src.analysis.cross_section   # MQO com HC3 e robustez
+python -m src.analysis.figures_phase4  # CAR por tipo de falha
+```
+
+Coeficientes em `data/processed/cross_section_main.csv` e `data/processed/cross_section_robust.csv`.
+
 Os passos seguintes serão documentados aqui conforme forem implementados.
 
 ## Fontes de dados
