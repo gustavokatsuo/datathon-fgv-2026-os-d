@@ -1,0 +1,172 @@
+slug,name,category,chains_acima_5pct,n_chains_acima_5pct,share_max,tvl_total_nessas_chains
+lido,Lido,Liquid Staking,Ethereum,1,0.4858004551676784,20739138474.181953
+aave-v3,Aave V3,Lending,"Plasma, MegaETH, Mantle, X Layer, Gnosis, Avalanche, Arbitrum, Linea, Sonic, Ethereum, Monad, Polygon, Celo, OP Mainnet, Base",15,0.8383744554602066,15602217340.680832
+ssv-network,SSV Network,Staking Pool,Ethereum,1,0.2724417906339816,11630717843.115261
+morpho-blue,Morpho Blue,Lending,"Stable, World Chain, Pharos, Base, Katana, Tempo, Robinhood Chain, Arc, Flare, Etherlink, Monad, Morph, Arbitrum, Ethereum, Sei, MegaETH, Hyperliquid L1",17,0.9571695151305867,10809830965.985975
+binance-staked-eth,Binance staked ETH,Liquid Staking,"Ethereum, BSC",2,0.18351825599143892,8297491453.354948
+eigencloud,EigenCloud,Restaking,Ethereum,1,0.12707325201844874,5424840059.208263
+ethena-usde,Ethena USDe,Basis Trading,Ethereum,1,0.11665511128263807,4980082832.109913
+sparklend,SparkLend,Lending,Ethereum,1,0.1164750296989687,4972395031.778232
+sky-lending,Sky Lending,CDP,Ethereum,1,0.09486845521884565,4049996266.339999
+ether.fi-stake,ether.fi Stake,Liquid Staking,Ethereum,1,0.09472873331334522,4044031447.0088816
+justlend-v1,JustLend V1,Lending,Tron,1,0.6746186971550069,3369757132.4286547
+justlend-strx,JustLend sTRX,Liquid Staking,Tron,1,0.6340772846203145,3167250568.9081926
+babylon-protocol,Babylon Protocol,Restaking,Bitcoin,1,0.7755482674921277,3034049128.7589064
+spark-liquidity-layer,Spark Liquidity Layer,Onchain Capital Allocator,"Ethereum, Base",2,0.05784275775879287,2768348269.574718
+steakhouse-financial,Steakhouse Financial,Risk Curators,"Robinhood Chain, Base, Katana",3,0.5033549668560761,1973296724.439374
+maple,Maple,Lending,Bitcoin,1,0.45428524375116053,1777224972.04241
+sanctum-validator-lsts,Sanctum Validator LSTs,Liquid Staking,Solana,1,0.2973748405866395,1536288944.418978
+hyperliquid-earn,Hyperliquid Earn,Lending,Hyperliquid L1,1,0.6346942812339513,1485262692.9984853
+pancakeswap-amm,PancakeSwap AMM,Dexs,BSC,1,0.2798553283645976,1425111940.7556455
+gauntlet,Gauntlet,Risk Curators,"Morph, Stable, Base, BSC, Arbitrum",5,0.8364537612043166,1250855432.053287
+kamino-lend,Kamino Lend,Lending,Solana,1,0.2273909942063832,1174740505.1838186
+venus-core-pool,Venus Core Pool,Lending,BSC,1,0.2199471189424489,1120040370.0419173
+usdd,USDD,CDP,Tron,1,0.20470643519434487,1022519792.2311516
+raydium-amm,Raydium AMM,Dexs,Solana,1,0.19446406503215408,1004634395.452935
+binance-staked-sol,Binance Staked SOL,Liquid Staking,Solana,1,0.18742808161427127,968285309.8454075
+jupiter-lend,Jupiter Lend,Lending,Solana,1,0.17783828960517203,918742815.2154212
+lista-lending,Lista Lending,Lending,BSC,1,0.1780535950785938,906705282.0605657
+jito-liquid-staking,Jito Liquid Staking,Liquid Staking,Solana,1,0.17531906845109954,905728090.7689514
+kinetiq-khype,Kinetiq kHYPE,Liquid Staking,Hyperliquid L1,1,0.33054765842325273,773522181.9859084
+grove-finance,Grove Finance,Onchain Capital Allocator,"Avalanche, Base",2,0.4358341726397153,762452794.9854338
+lista-liquid-staking,Lista Liquid Staking,Liquid Staking,BSC,1,0.13596289256242367,692366097.9502664
+jupiter-perpetual-exchange,Jupiter Perpetual Exchange,Derivatives,Solana,1,0.1252956096097019,647298404.424162
+pancakeswap-amm-v3,PancakeSwap AMM V3,Dexs,BSC,1,0.12101895655597776,616266844.2068154
+uniswap-v3,Uniswap V3,Dexs,"Unichain, Celo, X Layer, Arbitrum, Robinhood Chain, Base",6,0.38940558231336814,551487946.7548779
+lombard-lbtc,Lombard LBTC,Restaked BTC,Bitcoin,1,0.13327117352888326,521374754.9736996
+sentora-curator,Sentora Curator,Risk Curators,"Tempo, Solana",2,0.6414399087740058,441929893.8496054
+jupiter-staked-sol,Jupiter Staked SOL,Liquid Staking,Solana,1,0.08549428554774553,441678002.8831454
+spark-savings,Spark Savings,Yield,"X Layer, Arbitrum",2,0.5196780535041193,417855266.5040024
+rocketswap-anubis-v2,RocketSwap Anubis V2,Dexs,Anubis,1,0.9996063846239275,342273789.56504995
+polymarket-international,Polymarket International,Prediction Market,Polygon,1,0.5021176635818202,321616796.7266074
+tbtc,tBTC,Decentralized BTC,Bitcoin,1,0.08198609620762252,320740634.97486436
+marinade-native,Marinade Native,Staking Pool,Solana,1,0.06029092965318835,311473184.79335076
+onre,OnRe,RWA,Solana,1,0.05987679893416573,309333715.14647806
+pumpswap,PumpSwap,Dexs,Solana,1,0.059845919159889224,309174184.98671883
+etherfi-borrowing-market,EtherFi Borrowing Market,Lending,OP Mainnet,1,0.7342342477111043,300658737.9569513
+aave-v4,Aave V4,Lending,"Arc, Avalanche",2,0.2847867307403455,297803075.42470354
+hyperlend-pooled,HyperLend Pooled,Lending,Hyperliquid L1,1,0.12558854592827584,293892646.35021716
+orca-dex,Orca DEX,Dexs,Solana,1,0.05440505214671878,281065741.70383
+forward-industries-sol,Forward Industries SOL,Liquid Staking,Solana,1,0.05286255072955098,273096917.3430648
+gtbtc,GTBTC,Restaked BTC,Bitcoin,1,0.06578161612535786,257346529.49311215
+sunswap-v2,SUNSwap V2,Dexs,Tron,1,0.050673140811388954,253115098.04256865
+lightning-network,Lightning Network,Payments,Bitcoin,1,0.06139061597003731,240168346.32378957
+veda,Veda,Onchain Capital Allocator,"OP Mainnet, Plasma",2,0.5037286775249509,237172386.20287165
+etherfi-cash-liquid,EtherFi Cash Liquid,Crypto Card Issuer,OP Mainnet,1,0.5714607895148298,234005265.081308
+nonce-capital,Nonce Capital,Risk Curators,OP Mainnet,1,0.5322595028390396,217952882.05099583
+euler-v2,Euler V2,Lending,"Monad, Unichain",2,0.2215354568062573,208462154.5412615
+uniswap-v4,Uniswap V4,Dexs,"Unichain, Tempo, Robinhood Chain, X Layer, Celo",5,0.44582804435431994,198227155.49625373
+gmx-evm,GMX EVM,Derivatives,Arbitrum,1,0.1343704353823184,191563052.74645832
+benqi-staked-avax,Benqi Staked Avax,Liquid Staking,Avalanche,1,0.31334869319445335,189717469.6947834
+k3-capital,K3 Capital,Risk Curators,Monad,1,0.19675365818706,183617050.38316083
+sthype,stHYPE,Liquid Staking,Hyperliquid L1,1,0.07336909011813679,171692696.14317617
+pendle-v2,Pendle V2,Yield,"Monad, X Layer",2,0.15950353954371682,170579282.31260353
+hyperithm,Hyperithm,Risk Curators,Monad,1,0.1700992722505901,158742291.91348127
+usd-ai,USD AI,RWA,Arbitrum,1,0.11069236781015732,157806796.06429115
+fluid-lending,Fluid Lending,Lending,"Arbitrum, Plasma",2,0.08799306999866383,151563278.67920917
+opentrade,OpenTrade,RWA,Avalanche,1,0.24661142362996677,149311282.6223645
+hyperliquid-hlp,Hyperliquid HLP,Derivatives,Hyperliquid L1,1,0.0632711594419396,148062296.1958474
+rhea-lend,Rhea Lend,Lending,Near,1,0.8536444566779945,144284583.84983283
+curvance,Curvance,Lending,Monad,1,0.14536602856881642,135660407.22019878
+upshift,Upshift,Onchain Capital Allocator,"Fluent, Stellar, Flare",3,0.8858180440917035,134261108.2204011
+suilend,Suilend,Lending,Sui,1,0.31015065364767597,133730090.72209951
+figure-markets-exchange,Figure Markets Exchange,OTC Marketplace,Provenance,1,1.0,126417689.33040082
+navi-lending,NAVI Lending,Lending,Sui,1,0.28799348239269434,124176409.35072385
+tydro,Tydro,Lending,Ink,1,0.6266543077809443,118064140.9697914
+lighter-robinhood-perps,Lighter Robinhood Perps,Derivatives,Robinhood Chain,1,0.10778424535340812,115139242.03561565
+blend-pools-v2,Blend Pools V2,Lending,Stellar,1,0.5483261722532704,113379784.5303806
+avant-avusd,Avant avUSD,Onchain Capital Allocator,Avalanche,1,0.1800554366106592,109014853.35815784
+cian-yield-layer,CIAN Yield Layer,Yield Aggregator,Mantle,1,0.9917949517010946,106491424.58419362
+valos,Valos,RWA,Monad,1,0.11381165041121152,106212813.22189163
+extended-perps,Extended Perps,Derivatives,Arc,1,0.16690012384440195,99958991.17659037
+benqi-lending,Benqi Lending,Lending,Avalanche,1,0.16146985272081474,97762181.73398323
+reservoir-protocol,Reservoir Protocol,CDP,"Pharos, Monad",2,0.14847670816280284,88706392.94876708
+stellar-defi-hub,Stellar DeFi Hub,Farm,Stellar,1,0.3995083718592183,82608081.48796362
+galaxy-curation,Galaxy Curation,Risk Curators,Arc,1,0.13463330259641915,80633907.25136407
+meta-pool-near,Meta Pool Near,Liquid Staking,Near,1,0.45276456397148473,76527114.05026887
+keyrock,Keyrock,Risk Curators,Arc,1,0.12554475560159298,75190639.93712997
+dydx-v4,dYdX V4,Derivatives,dYdX,1,1.0,70707836.51569942
+vvs-standard,VVS Standard,Dexs,Cronos,1,0.6507612340705844,69519312.2653354
+rhea-lst,RHEA LST,Liquid Staking,Near,1,0.3940295562883415,66599613.11626379
+arcus-perps,Arcus Perps,Derivatives,Robinhood Chain,1,0.06148675710636071,65682499.19310237
+clearstar,Clearstar,Risk Curators,Flare,1,0.38345106313384825,61403018.35889354
+firelight,Firelight,Insurance,Flare,1,0.36056504508048914,57738220.626407266
+springsui,SpringSui,Liquid Staking,Sui,1,0.12703225769560922,54773495.223920956
+current,Current,Lending,Sui,1,0.12440509363496341,53640720.283613704
+nado-spot,Nado Spot,Dexs,Ink,1,0.2838264079839547,53474013.70594414
+yuzu-money,Yuzu Money,Yield,Plasma,1,0.10929363347794377,48282596.83826327
+linear-protocol,LiNEAR Protocol,Liquid Staking,Near,1,0.2663738647425767,45023009.19567969
+zest-v2,Zest V2,Lending,Stacks,1,0.7729087633015611,44187653.18131341
+quickswap-dex,Quickswap Dex,Dexs,Polygon,1,0.06826146111406474,43722884.20760956
+tangible-rwa,Tangible RWA,RWA,Polygon,1,0.06535013033639936,41858116.351714864
+sdai,sDAI,Yield,Gnosis,1,0.4400180660860971,37533658.52117538
+aquarius-stellar,Aquarius Stellar,Dexs,Stellar,1,0.18061330849307666,37346198.369691364
+rockawayx,RockawayX,Risk Curators,"Pharos, Sei",2,0.23176040060813125,36207829.842590615
+ember,Ember,RWA,Sui,1,0.081571272773942,35171725.67615554
+plasma-saving-vaults,Plasma Saving Vaults,Onchain Capital Allocator,Plasma,1,0.07164077800757232,31648712.66190618
+plasma-one,Plasma One,Crypto Card Issuer,Plasma,1,0.07053039565228847,31158179.57328569
+bdex-v3,BDEX V3,Dexs,BOT Chain,1,0.9164257140560595,30699761.942689724
+gami-labs,Gami Labs,Risk Curators,Stellar,1,0.1453447939664573,30053574.41686699
+re7-labs,Re7 Labs,Risk Curators,"World Chain, Starknet",2,0.73099736182968,29859863.070767336
+xrpl-dex,XRPL DEX,Dexs,XRPL,1,0.8849810720216925,29843709.88509489
+haedal-protocol,Haedal Protocol,Liquid Staking,Sui,1,0.0683114362973403,29454377.948136535
+decibel,Decibel,Derivatives,Aptos,1,0.7278990385508675,29250108.021474164
+realt-rmm-marketplace-v2,RealT RMM Marketplace V2,Lending,Gnosis,1,0.3405907630113864,29052483.021991674
+kinetic,Kinetic,Lending,Flare,1,0.17824316424147454,28542542.55241475
+bitfi-basis,BitFi Basis,Basis Trading,Pharos,1,0.2036566915686364,27433328.29653127
+kaio,KAIO,RWA,"Sei, Immutable zkEVM, Aptos",3,0.6621461817441581,26626369.001146987
+bucket-protocol-v2,Bucket Protocol V2,CDP,Sui,1,0.06054742526346351,26106708.395561002
+mystic-finance-lending,Mystic Finance Lending,Lending,Flare,1,0.15939810446077413,25524834.002510745
+cetus-clmm,Cetus CLMM,Dexs,Sui,1,0.05723652922832464,24679123.37536777
+xalgo-liquid-staking,xALGO Liquid Staking,Liquid Staking,Algorand,1,0.821361781981045,23411780.971408483
+volo-lst,Volo LST,Liquid Staking,Sui,1,0.053849764386604985,23218825.406587463
+ekubo,Ekubo,Dexs,Starknet,1,0.6395920725578036,22526927.11088409
+crypto.com-liquid-staking,Crypto.com Liquid Staking,Liquid Staking,Cronos,1,0.20963228415754656,22394530.374965906
+rhea-dex,Rhea Dex,Dexs,Near,1,0.13216347908861312,22338518.608385637
+stakee,Stakee,Liquid Staking,TON,1,0.545497233899736,22107431.204711594
+risex,RISEx,Derivatives,RISE,1,0.6425902770529006,21901415.13134577
+folks-finance-lending,Folks Finance Lending,Lending,Algorand,1,0.7585992675643896,21622822.350526955
+ston.fi,STON.fi,Dexs,TON,1,0.4897162078928386,19846786.936802484
+curve-dex,Curve DEX,Dexs,"Fraxtal, Etherlink",2,0.5375069095569864,18806106.224897135
+defindex,DeFindex,Yield Aggregator,Stellar,1,0.09075894743137213,18766621.811406225
+kodiak-islands,Kodiak Islands,Liquidity Manager,Berachain,1,0.5822231271678182,18254163.517115716
+tectonic,Tectonic,Lending,Cronos,1,0.16812031371634503,17959902.919055946
+clearpool-tpool,Clearpool TPOOL,RWA,Flare,1,0.1099567493541494,17607660.920528825
+tempo-stablecoin-dex,Tempo Stablecoin Dex,Dexs,Tempo,1,0.15920150401488029,16796508.566854276
+kpk,KPK,Risk Curators,"dYdX, Gnosis",2,0.13972439919637428,16724365.863334551
+youves,Youves,Synthetics,Tezos,1,0.8694598029430176,16591153.23852368
+veno-finance,Veno Finance,Liquid Staking,Cronos,1,0.15125217442848468,16157918.748682419
+agni-finance,Agni Finance,Dexs,Mantle,1,0.1469069934531477,15773759.472533962
+renzo,Renzo,Liquid Restaking,Linea,1,0.6990624477168051,15672255.546113206
+sushi-stellar,Sushi Stellar,Dexs,Stellar,1,0.07524363619322506,15558453.509181958
+kodiak-v3,Kodiak V3,Dexs,Berachain,1,0.47762948239585595,14974888.947920885
+yearn-finance,Yearn Finance,Yield Aggregator,Katana,1,0.43933474251553023,14141902.723112756
+sparkdex-v4,SparkDEX V4,Dexs,Flare,1,0.08330328377707333,13339571.994703986
+saucerswap-v2,SaucerSwap V2,Dexs,Hedera,1,0.5611069000338111,13296801.460859902
+stellar-dex,Stellar DEX,Dexs,Stellar,1,0.06373887147807629,13179563.3330738
+minswap-dex,Minswap DEX,Dexs,Cardano,1,0.25128228129582925,12361023.575920286
+hydro-lst,Hydro LST,Liquid Staking,Injective,1,0.5481230940161942,11975814.844631962
+sceptre-liquid,Sceptre Liquid,Liquid Staking,Flare,1,0.07372843873275327,11806327.097076142
+saphyre-v3,Saphyre V3,Dexs,Sei,1,0.5313022302781387,11777522.562914537
+infrared-finance,Infrared Finance,Liquid Staking,Berachain,1,0.3685736682688367,11555714.114982674
+merchant-moe-liquidity-book,Merchant Moe Liquidity Book,Dexs,Mantle,1,0.10375226173715986,11140131.473014517
+kava-mint,Kava Mint,CDP,Kava,1,0.5746499843312803,11100200.89360403
+quickswap-v3,Quickswap V3,Dexs,Immutable zkEVM,1,0.9999024371447479,10964000.417863455
+templar-lending,Templar Lending,Lending,Stellar,1,0.052985153564142594,10955970.366551813
+chainflip-amm,Chainflip AMM,Dexs,Chainflip,1,0.7061171426053624,10704333.905280693
+yearn-curating,Yearn Curating,Risk Curators,Katana,1,0.3294100492424095,10603497.564814746
+uranium.io,Uranium.io,RWA,Etherlink,1,0.6031816103400673,10508729.942800187
+native-credit-pool,Native Credit Pool,Lending,Morph,1,0.44947993614127707,9524661.09646148
+sushiswap-v3,SushiSwap V3,Dexs,Katana,1,0.21803487460351798,7018402.344494851
+convex-finance,Convex Finance,Yield,Fraxtal,1,0.3354218418223146,5903277.636460858
+beefy,Beefy,Yield Aggregator,Fraxtal,1,0.2952681436605347,5196590.119953801
+y10k-capital,Y10K Capital,Risk Curators,Sei,1,0.22506647537098665,4989110.417341518
+ultrayield-curator,UltraYield Curator,Risk Curators,Etherlink,1,0.28491427045171747,4963823.620781475
+zoo-finance,Zoo Finance,Yield,Sei,1,0.19900511633241336,4411401.108769013
+dolomite,Dolomite,Lending,Berachain,1,0.14033974663972495,4400005.0213974565
+steer-protocol,Steer Protocol,Liquidity Manager,Katana,1,0.09861586662881819,3174381.303957334
+sosovalue-indexes,SoSoValue Indexes,Indexes,XRPL,1,0.08661371993250683,2920824.8757564775
+spectra-v2,Spectra V2,Yield,Sonic,1,0.189782138872924,2707392.974010991
+gearbox,Gearbox,Lending,Etherlink,1,0.08090729162750457,1409580.23842516
+flying-tulip-lend,Flying Tulip Lend,Lending,Sonic,1,0.08356702035864766,1192149.931082449
+stake-dao-yield,Stake DAO Yield,Yield,Fraxtal,1,0.06684841246283917,1176502.8066772025

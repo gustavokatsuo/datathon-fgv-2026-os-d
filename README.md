@@ -97,6 +97,15 @@ python -m src.analysis.figures_phase7
 
 Resultados em `data/processed/placebo_summary.csv` e `data/processed/robustness_h1.csv`.
 
+### 8. Ranking de exposição atual
+
+```bash
+python -m src.analysis.exposure_ranking
+python -m src.analysis.figures_phase8
+```
+
+Resultados em `data/processed/exposure_ranking.csv` (protocolos acima de 5% do TVL de alguma chain), `exposure_chain_concentration.csv`, `exposure_oracles.csv` e `exposure_fork_bases.csv`.
+
 Os passos seguintes serão documentados aqui conforme forem implementados.
 
 ## Fontes de dados
