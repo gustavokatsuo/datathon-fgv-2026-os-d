@@ -49,6 +49,16 @@ python -m src.build.sample
 
 Aplica a taxonomia de falhas (`src/build/taxonomy.py`, com revisões manuais em `src/build/taxonomy_overrides.csv`), as datas validadas (`docs/date_validation.csv`) e a codificação de devolução de fundos (`src/build/recovery_manual.csv`). Gera `data/processed/events.parquet`, com as flags de amostra, e a tabela descritiva por categoria em `data/processed/table_categories.csv`.
 
+### 3. Estudo de evento (H1)
+
+```bash
+python -m src.analysis.event_price     # retorno anormal do token (CAR, BHAR, BMP, Corrado, bootstrap)
+python -m src.analysis.event_tvl       # decomposição do TVL em preço e fluxo, fluxo anormal
+python -m src.analysis.figures_phase3  # figuras em figures/
+```
+
+Tabelas resumo em `data/processed/price_event_study.csv` e `data/processed/tvl_event_study.csv`.
+
 Os passos seguintes serão documentados aqui conforme forem implementados.
 
 ## Fontes de dados

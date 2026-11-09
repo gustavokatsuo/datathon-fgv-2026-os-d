@@ -9,6 +9,7 @@ Critérios fixados antes de ver qualquer resultado (ver docs/decisions.md):
   todos os dias de [-1,+30], e TVL(-1) >= US$ 1 milhão.
 - Datas corrigidas manualmente em docs/date_validation.csv substituem a da
   DefiLlama.
+- Registros duplicados (src/build/duplicates.csv) são excluídos.
 
 Saída: data/processed/events.parquet (um registro por hack, com flags de
 amostra) e tabela descritiva por categoria em data/processed/.
@@ -37,6 +38,7 @@ OVERLAP_WINDOW = (-120, 30)  # outro evento do mesmo token/protocolo nesta janel
 DATE_FIXES = DOCS_DIR / "date_validation.csv"
 RECOVERY_CSV = Path(__file__).with_name("recovery_manual.csv")
 RETURNED_MIN_SHARE = 0.5
+DUPLICATES_CSV = Path(__file__).with_name("duplicates.csv")
 
 
 def _load_date_fixes() -> pd.DataFrame:
@@ -126,16 +128,20 @@ def build_events() -> pd.DataFrame:
     ev["tvl_total_cov"] = [
         has(s) and _covered(tvl_dates, s, d, TVL_BASE, EVT) for s, d in zip(ev["slug"], ev["date"])
     ]
+    # snapshot das 00:00 UTC da data do hack = fechamento do dia -1
     ev["tvl_pre"] = [
-        tvl_level.get((s, d - pd.Timedelta(days=1)), np.nan) if has(s) else np.nan
+        tvl_level.get((s, d), np.nan) if has(s) else np.nan
         for s, d in zip(ev["slug"], ev["date"])
     ]
     ev["loss_to_tvl"] = ev["amount_usd"] / ev["tvl_pre"]
 
-    ev["overlap_token"] = _overlap(ev, "gecko_id")
-    ev["overlap_protocol"] = _overlap(ev, "slug")
+    nodup = ev[~ev["hack_id"].isin(set(pd.read_csv(DUPLICATES_CSV)["hack_id"]))]
+    ev["overlap_token"] = _overlap(nodup, "gecko_id").reindex(ev.index, fill_value=False)
+    ev["overlap_protocol"] = _overlap(nodup, "slug").reindex(ev.index, fill_value=False)
 
-    base = (ev["date"] >= START) & (ev["amount_usd"].fillna(0) >= MIN_LOSS)
+    dup = set(pd.read_csv(DUPLICATES_CSV)["hack_id"])
+    ev["is_duplicate"] = ev["hack_id"].isin(dup)
+    base = (ev["date"] >= START) & (ev["amount_usd"].fillna(0) >= MIN_LOSS) & ~ev["is_duplicate"]
     ev["in_base"] = base
     ev["sample_price"] = base & ev["price_cov"]
     ev["sample_tvl"] = base & ev["tvl_tokens_cov"] & (ev["tvl_pre"] >= MIN_TVL_PRE)

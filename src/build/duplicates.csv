@@ -1,0 +1,4 @@
+hack_id,name,date,duplicata_de,justificativa
+9698002954c8,DEUS Finance,2021-03-15,f908b1514e2d,Mesmo ataque ao oraculo USDC/DEI de 15/03/2022 com ano errado. O DEI nao existia em marco de 2021
+479fb698a683,Gamma,2021-12-21,fb4a0dc45bad,Mesmo incidente da Visor Finance de 21/12/2021 descrito duas vezes (mint infinito e reentrancia). Post-mortem da Visor descreve um unico ataque de 8.8M VISR. Mantido o registro de 8.2M
+22798aa9b215,BasketDAO,2024-01-17,a9005d48003d,Mesmo exploit do BMIZapper de 30/03/2022 (revoke.cash). Mesma tecnica e mesmo valor
