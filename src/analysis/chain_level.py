@@ -126,6 +126,35 @@ def dose_response(df: pd.DataFrame, value: str, s: pd.DataFrame, label: str) -> 
     return out
 
 
+def clustered_means(nat: pd.DataFrame, sc: pd.DataFrame, s: pd.DataFrame) -> pd.DataFrame:
+    """Médias com erros agrupados por chain e mês: eventos na mesma chain em
+    datas próximas compartilham choques, o que os testes da tabela principal ignoram."""
+    key = s[["hack_id", "main_chain", "date", "loss_chain"]].copy()
+    key["cluster"] = key["main_chain"] + "_" + key["date"].dt.strftime("%Y-%m")
+    rows = []
+    for label, df, v in [("CAR moeda nativa", nat, "car"), ("crescimento anormal de stablecoins", sc, "abn_growth")]:
+        d = df.merge(key, on="hack_id")
+        for subset, mask in [("todos", d["loss_chain"] > 0), ("perda >= 5% do TVL da chain", d["loss_chain"] >= 0.05)]:
+            for w in ["[0,1]", "[0,5]", "[0,30]"]:
+                x = d[mask & (d["window"] == w)]
+                with warnings.catch_warnings():
+                    warnings.simplefilter("ignore")
+                    m = smf.ols(f"{v} ~ 1", x).fit(cov_type="cluster",
+                                                   cov_kwds={"groups": pd.factorize(x["cluster"])[0]})
+                rows.append({"medida": label, "amostra": subset, "window": w, "n": len(x),
+                             "clusters": x["cluster"].nunique(), "media": m.params.iloc[0],
+                             "p_cluster": m.pvalues.iloc[0]})
+    return pd.DataFrame(rows)
+
+
+def large_event_chains(s: pd.DataFrame) -> pd.DataFrame:
+    """Perfil das chains dos eventos acima de 5% (validade externa do limiar)."""
+    b = s[s["loss_chain"] >= 0.05]
+    return pd.DataFrame([{"n_eventos": len(b), "n_chains": b["main_chain"].nunique(),
+                          "tvl_chain_mediano_usd": b["chain_tvl"].median(),
+                          "tvl_chain_maximo_usd": b["chain_tvl"].max()}])
+
+
 def bridge_cases() -> pd.DataFrame:
     spec = pd.read_csv(BRIDGE_ASSETS)
     px = pd.read_parquet(PROCESSED_DIR / "bridge_asset_prices.parquet")
@@ -167,6 +196,10 @@ def run() -> None:
                         + dose_response(sc, "abn_growth", s, "stablecoins"))
     dose.to_csv(PROCESSED_DIR / "chain_level_dose.csv", index=False)
     cases = bridge_cases()
+    clus = clustered_means(nat, sc, s)
+    clus.to_csv(PROCESSED_DIR / "chain_level_clustered.csv", index=False)
+    large = large_event_chains(s)
+    large.to_csv(PROCESSED_DIR / "chain_level_large_events.csv", index=False)
 
     pd.set_option("display.width", 250)
     print(f"amostra de chain: {len(s)} eventos, {s['main_chain'].nunique()} chains")
@@ -174,6 +207,8 @@ def run() -> None:
     print(summary[cols].round(4).to_string(index=False))
     print(dose.round(4).to_string(index=False))
     print(cases.round(4).to_string(index=False))
+    print(clus.round(4).to_string(index=False))
+    print(large.to_string(index=False))
 
 
 if __name__ == "__main__":

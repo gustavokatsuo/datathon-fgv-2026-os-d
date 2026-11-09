@@ -119,7 +119,7 @@ A apresentação final é `slides/main.pdf` (10 slides, Beamer com tema metropol
 | Hipótese | Resultado |
 |---|---|
 | H1. Retorno anormal negativo e corrida on-chain | **Confirmada.** CAR[0,+1] de -17,4% (mediana -14,2%, n = 132), fora da faixa placebo (-2,4% a +3,1%). Corrida de depósitos além do roubo de cerca de 10% do TVL em 30 dias acima do placebo (p = 0,01, n = 125). |
-| H2. Falhas operacionais punidas mais que bugs de código | **Não confirmada**, com pouco poder. Diferença de -7 p.p. (IC 95% de -19 a +5). O tamanho da perda é o que explica a reação. |
+| H2. Falhas operacionais punidas mais que bugs de código | **Não confirmada**, com pouco poder. Diferença de -6 p.p. na especificação principal (IC 95% de -23 a +10, n = 101) e de -7 p.p. com a amostra completa (IC de -19 a +5, n = 132). O tamanho da perda é o que explica a reação. |
 | H3. Auditoria e devolução atenuam | **Não confirmada.** Sem efeito em nenhuma especificação (9 devoluções na amostra). |
 | H4. Efeito na chain | **Moeda nativa confirmada** para hacks de pelo menos 5% do TVL da chain (-13% em [0,+5], n = 27). Stablecoins *saem* da chain, ao contrário do previsto. Perda de paridade de até 56% em ativos bridged (Orbit). |
 | H5. Contágio por dependência técnica | **Não confirmada.** Forks da vítima não perdem mais TVL que controles (+0,3 p.p. em [0,+1], IC de -2,0 a +2,6). Sinal fraco de contágio setorial. |

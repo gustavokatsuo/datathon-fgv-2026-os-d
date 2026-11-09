@@ -5,7 +5,8 @@ HC3. Robustez: winsorização 1/99, regressão mediana, BHAR, CAR em
 log-retornos, categoria pela regra automática e TVL sem CEX.
 
 Uso: python -m src.analysis.cross_section
-Saídas: data/processed/cross_section_main.csv e cross_section_robust.csv
+Saídas: data/processed/cross_section_main.csv, cross_section_robust.csv e
+cross_section_power.csv (IC e efeito mínimo detectável do H2)
 """
 
 from __future__ import annotations
@@ -94,8 +95,26 @@ def _fit(df: pd.DataFrame, y: str, rhs: str, method: str = "ols") -> dict:
     out = {"n": int(m.nobs), "r2": getattr(m, "rsquared", np.nan)}
     for k in m.params.index:
         out[f"b[{k}]"] = m.params[k]
+        out[f"se[{k}]"] = m.bse[k]
         out[f"p[{k}]"] = m.pvalues[k]
     return out
+
+
+OPERATIONAL = "C(group, Treatment('code'))[T.operational]"
+
+
+def power_table(main: pd.DataFrame) -> pd.DataFrame:
+    """IC 95% e efeito mínimo detectável (80% de poder, teste bilateral a 5%:
+    2,8 erros-padrão) do coeficiente operacional contra código (H2)."""
+    rows = []
+    for _, r in main.iterrows():
+        b, se = r.get(f"b[{OPERATIONAL}]"), r.get(f"se[{OPERATIONAL}]")
+        if pd.isna(b):
+            continue
+        rows.append({"modelo": r["modelo"], "y": r["y"], "n": r["n"], "b_operacional": b, "se": se,
+                     "ic_lo": b - 1.96 * se, "ic_hi": b + 1.96 * se, "efeito_minimo_detectavel": 2.8 * se,
+                     "p": r[f"p[{OPERATIONAL}]"]})
+    return pd.DataFrame(rows)
 
 
 def _rhs(size: str, group: str = H2, returned: bool = False, cex: bool = False) -> str:
@@ -142,6 +161,7 @@ def run() -> tuple[pd.DataFrame, pd.DataFrame]:
 
     main, robust = pd.DataFrame(main), pd.DataFrame(robust)
     main.to_csv(PROCESSED_DIR / "cross_section_main.csv", index=False)
+    power_table(main).to_csv(PROCESSED_DIR / "cross_section_power.csv", index=False)
     robust.to_csv(PROCESSED_DIR / "cross_section_robust.csv", index=False)
     return main, robust
 
@@ -167,5 +187,7 @@ if __name__ == "__main__":
     m, rb = run()
     print("==== PRINCIPAIS ====")
     show(m)
+    print("\n==== PODER (H2, operacional contra código) ====")
+    print(pd.read_csv(PROCESSED_DIR / "cross_section_power.csv").round(4).to_string(index=False))
     print("\n==== ROBUSTEZ ====")
     show(rb)

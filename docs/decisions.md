@@ -185,3 +185,25 @@ Robustez desta fase: variável dependente winsorizada em 1% e 99%, regressão me
 - Protocolos acima de 5% em mais chains: Morpho Blue (17 chains) e Aave V3 (15 chains). São pontos únicos de falha multi-chain.
 - Contexto descritivo: oráculos por TVL atendido, com Chainlink (US$ 42,5 bilhões), RedStone (16,1) e Chronicle (14,2). Códigos-base por TVL somado dos forks: Aave V3 (54 forks, US$ 5,4 bilhões), Uniswap V2 (775 forks, 2,1), Compound V2 (149 forks, 1,4). Não usamos esses números como medida de risco, porque o contágio por fork não apareceu no H5.
 - Ressalva de validade externa: os 32 eventos acima de 5% da Fase 5 vieram de chains com TVL mediano de US$ 114 milhões (máximo de US$ 5,9 bilhões). Aplicar o limiar a Ethereum ou Base é extrapolação para fora da amostra, e deve ser apresentado assim.
+
+**2026-11-08. Correção na apresentação dos resultados da Fase 4 (feita na revisão final).** O registro acima, os slides e o README citavam como número de destaque do H2 o modelo alternativo (log da perda, n = 132: -7,2 p.p., IC de -19,3 a +4,9, efeito mínimo detectável de 17 p.p.). A especificação pré-registrada como principal é a de log(perda/TVL(-1)), n = 101: -6,1 p.p., IC de -22,6 a +10,4, efeito mínimo detectável de 23,6 p.p., p = 0,47. A conclusão não muda (H2 não confirmada, pouco poder), mas os slides e o README passaram a mostrar os dois modelos, com a principal primeiro. Os ICs e os efeitos mínimos detectáveis agora saem de `src/analysis/cross_section.py` (`cross_section_power.csv`), e não de cálculo avulso.
+
+**2026-11-08. Cálculos que estavam fora dos scripts.** Três números citados no log e nos slides tinham sido calculados à mão no terminal e passaram para o código: (1) IC e efeito mínimo detectável do H2 (`cross_section_power.csv`), (2) médias com erros agrupados por chain e mês da Fase 5 (`chain_level_clustered.csv`, via `src/analysis/chain_level.py`), (3) perfil das chains dos eventos acima de 5% do TVL da chain, que sustenta a ressalva de validade externa da Fase 8 (`chain_level_large_events.csv`: 32 eventos em 30 chains, TVL mediano de US$ 114 milhões, máximo de US$ 5,9 bilhões). Os valores reproduzidos pelos scripts coincidem com os já registrados. Os 32 eventos são a amostra de chain acima de 5%, e os 27 citados na Fase 5 são os que também têm preço da moeda nativa na janela.
+
+## Fase 9. Rastreamento on-chain (opcional)
+
+**2026-11-08. Fase não executada.** Exigiria chave da Etherscan e tempo de análise manual de carteiras que não cabiam no prazo da entrega (08/11/2026, 23h59). Nenhum resultado depende dela.
+
+## Fase 10. Slides e entrega
+
+**2026-11-08. Título.** O título provisório "Nem todo hack é igual" afirmava H2, que os dados não confirmaram. Trocado por "O preço de um hack: como o mercado de criptoativos reage a falhas de segurança em blockchain", alinhado aos resultados (dano grande, rápido e local). Aprovado pelo Katsuo.
+
+**2026-11-08. Tese apresentada.** A parte da tese original segundo a qual o dano se propaga pelas dependências técnicas não foi sustentada (H5) e foi apresentada como resultado negativo, sem reformular a hipótese depois do fato. A mensagem dos slides é que o mercado precifica a segurança da infraestrutura com força e rapidez, que o dano fica na vítima e, em hacks grandes em relação à chain, na moeda nativa, e que o risco agregado está na concentração do TVL em poucos protocolos.
+
+**2026-11-08. Link do repositório.** Removido do slide 10 a pedido do Katsuo. O rodapé passou a indicar que código, dados e log de decisões estão disponíveis como material suplementar.
+
+**2026-11-08. Paleta.** Slides e figuras passaram para preto, branco e amarelo a pedido do Katsuo. Nas figuras, a paleta validada para daltonismo (azul, laranja, verde-água) foi substituída por preto, amarelo-ouro (#D9A400) e cinza (#8C8C8C), três tons de claridades bem diferentes, o que mantém as séries distinguíveis com daltonismo e em impressão em preto e branco. No texto dos slides, o destaque usa amarelo escuro (#9E7700) em negrito, porque amarelo puro sobre branco não é legível.
+
+**2026-11-08. Formato.** 10 slides em Beamer (tema metropolis), compilados com `latexmk -pdf` em `slides/main.pdf`. Sem travessões nem ponto e vírgula nos textos, conforme as convenções do projeto.
+
+**2026-11-08. Complemento da correção da Fase 4.** O efeito do tamanho em CAR[0,+30] citado como -8,4 p.p. (p = 0,03) também vem do modelo com log da perda. Na especificação principal, log(perda/TVL), o coeficiente é -6,7 p.p. (p = 0,065). O slide 6 mostra os dois.

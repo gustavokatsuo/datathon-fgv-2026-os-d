@@ -1,0 +1,13 @@
+medida,amostra,window,n,clusters,media,p_cluster
+CAR moeda nativa,todos,"[0,1]",336,180,-0.0079368904539467,0.04396428559546306
+CAR moeda nativa,todos,"[0,5]",336,180,-0.022487450992383154,0.0007107934298608037
+CAR moeda nativa,todos,"[0,30]",336,180,-0.05218479799968282,0.03710077595046996
+CAR moeda nativa,perda >= 5% do TVL da chain,"[0,1]",27,27,-0.07527397190158132,0.002495270234777062
+CAR moeda nativa,perda >= 5% do TVL da chain,"[0,5]",27,27,-0.13139377754640472,0.0010817180802746885
+CAR moeda nativa,perda >= 5% do TVL da chain,"[0,30]",27,27,-0.09438394916691105,0.14945517277839543
+crescimento anormal de stablecoins,todos,"[0,1]",360,197,-0.006329118965068625,0.001876029084528385
+crescimento anormal de stablecoins,todos,"[0,5]",360,197,-0.01325066020396589,0.007382860272120736
+crescimento anormal de stablecoins,todos,"[0,30]",360,197,-0.06262927905581027,0.011824554127393002
+crescimento anormal de stablecoins,perda >= 5% do TVL da chain,"[0,1]",21,21,-0.01095105750182219,0.2517482441102976
+crescimento anormal de stablecoins,perda >= 5% do TVL da chain,"[0,5]",21,21,0.009909879435935208,0.7501913498925199
+crescimento anormal de stablecoins,perda >= 5% do TVL da chain,"[0,30]",21,21,0.047960378097578714,0.6649658373423393

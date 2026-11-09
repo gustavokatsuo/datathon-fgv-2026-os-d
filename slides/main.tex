@@ -183,15 +183,15 @@ Para H2: \emph{operacional} (chave, infraestrutura, governança) contra \emph{c�
 % ---------------------------------------------------------------- 6
 \begin{frame}{H2 e H3: o tipo de falha não muda o castigo de forma detectável}
 \begin{columns}[T]
-\begin{column}{0.56\textwidth}
+\begin{column}{0.54\textwidth}
 \includegraphics[width=\linewidth]{fig4_car_by_failure_type.pdf}
 \end{column}
-\begin{column}{0.44\textwidth}
-\small
+\begin{column}{0.46\textwidth}
+\footnotesize
 \begin{itemize}
 \item Falhas operacionais caem mais no dia ($-25$\% contra $-16$\% de bugs de código), na direção de H2.
-\item Com controles a diferença é de $-7$ p.p., com IC 95\% de $-19$ a $+5$ p.p. O efeito mínimo detectável é de 17 p.p. \alert{Descartamos uma punição extra maior que cerca de 19 p.p.}, não diferenças menores.
-\item \textbf{O que explica a reação é o tamanho}: cada log de perda a mais reduz o CAR de 30 dias em 8 p.p. (p = 0,03).
+\item Com controles, a diferença é de $-6$ p.p. na especificação principal (perda/TVL, n = 101, IC 95\% de $-23$ a $+10$) e de $-7$ p.p. com todos os eventos (n = 132, IC de $-19$ a $+5$). \alert{Só descartamos punições extras acima de cerca de 20 p.p.}
+\item \textbf{O que explica a reação é o tamanho}: em 30 dias, $-7$ p.p. por log de perda/TVL (p = 0{,}07) e $-8$ p.p. por log de perda (p = 0{,}03).
 \item H3: auditoria e devolução sem efeito em nenhuma especificação (só 9 devoluções, auditoria medida hoje).
 \end{itemize}
 \end{column}
