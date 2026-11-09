@@ -66,9 +66,13 @@ def _tvl_at(tok: pd.DataFrame, day: pd.Timestamp) -> float:
     return float(snap["usd"].sum()) if len(snap) else np.nan
 
 
-def run() -> tuple[pd.DataFrame, pd.DataFrame]:
-    ev = pd.read_parquet(PROCESSED_DIR / "events.parquet")
-    ev = ev[ev["sample_tvl"]].copy()
+def run(events: pd.DataFrame | None = None, save: bool = True) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Sem argumentos, roda a especificação principal e grava os arquivos."""
+    if events is None:
+        ev = pd.read_parquet(PROCESSED_DIR / "events.parquet")
+        ev = ev[ev["sample_tvl"]].copy()
+    else:
+        ev = events.copy()
     tok = pd.read_parquet(
         PROCESSED_DIR / "tvl_tokens.parquet", filters=[("slug", "in", list(ev["slug"].unique()))]
     )
@@ -129,10 +133,12 @@ def run() -> tuple[pd.DataFrame, pd.DataFrame]:
 
     res = pd.DataFrame(rows)
     res = res.merge(ev[["hack_id", "name", "target_type", "category"]], on="hack_id", how="left")
-    res.to_parquet(PROCESSED_DIR / "tvl_flows.parquet", index=False)
-    pd.DataFrame(daily, columns=["hack_id", "rel_day", "flow_rate", "abn_flow"]).to_parquet(
-        PROCESSED_DIR / "tvl_flows_daily.parquet", index=False
-    )
+    if save:
+        res.to_parquet(PROCESSED_DIR / "tvl_flows.parquet", index=False)
+    if save:
+        pd.DataFrame(daily, columns=["hack_id", "rel_day", "flow_rate", "abn_flow"]).to_parquet(
+            PROCESSED_DIR / "tvl_flows_daily.parquet", index=False
+        )
 
     summary = []
     for subset, mask in [("todos", res["hack_id"].notna()), ("sem CEX", res["target_type"] != "CEX")]:
@@ -145,7 +151,8 @@ def run() -> tuple[pd.DataFrame, pd.DataFrame]:
                 s = st.summarize(sub[measure].to_numpy(), sub[scar].to_numpy() if scar else None)
                 summary.append({"amostra": subset, "window": wl, "measure": measure, **s})
     summary = pd.DataFrame(summary)
-    summary.to_csv(PROCESSED_DIR / "tvl_event_study.csv", index=False)
+    if save:
+        summary.to_csv(PROCESSED_DIR / "tvl_event_study.csv", index=False)
     return res, summary
 
 

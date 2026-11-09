@@ -129,14 +129,21 @@ def _rank_u(ar: pd.Series) -> pd.Series:
     return (k / (1 + len(valid)) - 0.5).reindex(ar.index)
 
 
-def run() -> tuple[pd.DataFrame, pd.DataFrame]:
-    ev = pd.read_parquet(PROCESSED_DIR / "events.parquet")
+def run(events: pd.DataFrame | None = None, save: bool = True, rets: pd.DataFrame | None = None,
+        benchmarks: list[str] | None = None) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Estudo de evento de preço. Sem argumentos, roda a especificação principal
+    e grava os arquivos. Com `events`, roda sobre esses eventos (robustez)."""
+    bench_list = benchmarks or BENCHMARKS
     chains = pd.read_parquet(PROCESSED_DIR / "chains.parquet")
-    ev = ev[ev["sample_price"]].copy()
-    rets = load_returns()
+    if events is None:
+        ev = pd.read_parquet(PROCESSED_DIR / "events.parquet")
+        ev = ev[ev["sample_price"]].copy()
+    else:
+        ev = events.copy()
+    rets = load_returns() if rets is None else rets
     rel_days = np.arange(REL_MIN, REL_MAX + 1)
 
-    car_rows, ar_rows, u_cols, excluded = [], [], {b: {} for b in BENCHMARKS}, []
+    car_rows, ar_rows, u_cols, excluded = [], [], {b: {} for b in bench_list}, []
     for e in ev.itertuples():
         dates = pd.DatetimeIndex([e.date + pd.Timedelta(days=int(k)) for k in rel_days])
         ri = pd.Series(rets[e.gecko_id].reindex(dates).to_numpy(), index=rel_days)
@@ -151,7 +158,7 @@ def run() -> tuple[pd.DataFrame, pd.DataFrame]:
             "native": nat,
             "defi_index": None,  # construído abaixo
         }
-        for b in BENCHMARKS:
+        for b in bench_list:
             coin = bench[b]
             if b == "defi_index":
                 rm_full = defi_index_returns(rets, exclude=e.gecko_id)
@@ -196,11 +203,12 @@ def run() -> tuple[pd.DataFrame, pd.DataFrame]:
 
     car = pd.DataFrame(car_rows)
     ar = pd.DataFrame(ar_rows, columns=["hack_id", "benchmark", "rel_day", "ar"])
-    car.to_parquet(PROCESSED_DIR / "price_car.parquet", index=False)
-    ar.to_parquet(PROCESSED_DIR / "price_ar_daily.parquet", index=False)
+    if save:
+        car.to_parquet(PROCESSED_DIR / "price_car.parquet", index=False)
+        ar.to_parquet(PROCESSED_DIR / "price_ar_daily.parquet", index=False)
 
     summary = []
-    for b in BENCHMARKS:
+    for b in bench_list:
         u = pd.DataFrame(u_cols[b])
         for w in WINDOWS:
             wl = f"[{w[0]},{w[1]}]"
@@ -228,7 +236,8 @@ def run() -> tuple[pd.DataFrame, pd.DataFrame]:
                 }
             )
     summary = pd.DataFrame(summary)
-    summary.to_csv(PROCESSED_DIR / "price_event_study.csv", index=False)
+    if save:
+        summary.to_csv(PROCESSED_DIR / "price_event_study.csv", index=False)
     return car, summary
 
 

@@ -88,6 +88,15 @@ python -m src.analysis.figures_phase6
 
 Resultados em `data/processed/contagion_did.csv`.
 
+### 7. Robustez
+
+```bash
+python -m src.analysis.robustness      # placebos e variações da amostra
+python -m src.analysis.figures_phase7
+```
+
+Resultados em `data/processed/placebo_summary.csv` e `data/processed/robustness_h1.csv`.
+
 Os passos seguintes serão documentados aqui conforme forem implementados.
 
 ## Fontes de dados
