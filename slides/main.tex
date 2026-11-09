@@ -8,11 +8,23 @@
 \usepackage{xcolor}
 \graphicspath{{../figures/}}
 
-\definecolor{azul}{HTML}{2a78d6}
-\definecolor{laranja}{HTML}{eb6834}
+% paleta preto, branco e amarelo
+\definecolor{preto}{HTML}{111111}
+\definecolor{amarelo}{HTML}{FFC300}
+\definecolor{ouro}{HTML}{9E7700}   % amarelo escuro para texto (legível sobre branco)
 \definecolor{cinza}{HTML}{52514e}
-\setbeamercolor{alerted text}{fg=laranja}
-\setbeamercolor{progress bar}{fg=azul}
+\definecolor{cinzaclaro}{HTML}{3a3a3a}
+\setbeamercolor{normal text}{fg=preto,bg=white}
+\setbeamercolor{frametitle}{fg=white,bg=preto}
+\setbeamercolor{structure}{fg=preto}
+\setbeamercolor{alerted text}{fg=ouro}
+\setbeamerfont{alerted text}{series=\bfseries}
+\setbeamercolor{progress bar}{fg=amarelo,bg=cinzaclaro}
+\setbeamercolor{title separator}{fg=amarelo}
+\setbeamercolor{page number in head/foot}{fg=cinza}
+\setbeamercolor{item projected}{fg=preto}
+\setbeamertemplate{itemize item}{\color{amarelo}\textbullet}
+\setbeamertemplate{itemize subitem}{\color{amarelo}\textbullet}
 \setbeamerfont{footnote}{size=\tiny}
 \newcommand{\fonte}[1]{\par\vfill{\tiny\color{cinza}#1}}
 
@@ -29,7 +41,7 @@
 \vspace{0.6cm}
 {\LARGE\bfseries O preço de um hack}\\[4pt]
 {\large Como o mercado de criptoativos reage a falhas de segurança em blockchain}\\[2pt]
-{\color{azul}\rule{\textwidth}{0.6pt}}
+{\color{amarelo}\rule{\textwidth}{2pt}}
 
 \vspace{0.4cm}
 \begin{columns}[T]

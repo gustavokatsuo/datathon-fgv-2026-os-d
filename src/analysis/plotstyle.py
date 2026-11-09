@@ -1,8 +1,10 @@
 """Padrão visual único dos gráficos (legíveis em slide, PDF e PNG).
 
-Paleta categórica de referência validada para daltonismo: os três primeiros
-slots passam em todos os pares, então nenhum gráfico usa mais de três séries
-coloridas. Texto sempre em tons de cinza, nunca na cor da série.
+Paleta preto, amarelo-ouro e cinza, alinhada ao tema dos slides. As três cores
+têm claridades bem distintas, então continuam distinguíveis com daltonismo e em
+impressão em preto e branco. Nenhum gráfico usa mais de três séries (o de
+paridade de bridges usa um quarto tom, ouro escuro). Texto sempre em tons de
+cinza, nunca na cor da série.
 """
 
 from __future__ import annotations
@@ -14,7 +16,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 
 from src.config import FIGURES_DIR  # noqa: E402
 
-SERIES = ["#2a78d6", "#eb6834", "#1baf7a"]  # azul, laranja, verde-água
+SERIES = ["#111111", "#D9A400", "#8C8C8C"]  # preto, amarelo-ouro, cinza (paleta dos slides)
 TEXT = "#0b0b0b"
 TEXT_2 = "#52514e"
 GRID = "#e4e3df"

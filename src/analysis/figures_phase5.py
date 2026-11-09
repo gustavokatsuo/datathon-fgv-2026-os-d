@@ -16,7 +16,7 @@ from src.config import PROCESSED_DIR
 
 BUCKETS = [(0, 0.01, "< 1%"), (0.01, 0.05, "1% a 5%"), (0.05, np.inf, "≥ 5%")]
 # 4 casos em linhas: paleta categórica na ordem fixa (pares adjacentes validados)
-CASE_COLORS = ["#2a78d6", "#eb6834", "#1baf7a", "#6250d6"]
+CASE_COLORS = ["#111111", "#D9A400", "#8C8C8C", "#7A5C00"]
 
 
 def main() -> None:
