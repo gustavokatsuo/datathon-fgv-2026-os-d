@@ -106,8 +106,28 @@ python -m src.analysis.figures_phase8
 
 Resultados em `data/processed/exposure_ranking.csv` (protocolos acima de 5% do TVL de alguma chain), `exposure_chain_concentration.csv`, `exposure_oracles.csv` e `exposure_fork_bases.csv`.
 
-Os passos seguintes serão documentados aqui conforme forem implementados.
+### 9. Slides
+
+```bash
+cd slides && latexmk -pdf main.tex
+```
+
+A apresentação final é `slides/main.pdf` (10 slides, Beamer com tema metropolis).
+
+## Principais resultados
+
+| Hipótese | Resultado |
+|---|---|
+| H1. Retorno anormal negativo e corrida on-chain | **Confirmada.** CAR[0,+1] de -17,4% (mediana -14,2%, n = 132), fora da faixa placebo (-2,4% a +3,1%). Corrida de depósitos além do roubo de cerca de 10% do TVL em 30 dias acima do placebo (p = 0,01, n = 125). |
+| H2. Falhas operacionais punidas mais que bugs de código | **Não confirmada**, com pouco poder. Diferença de -7 p.p. (IC 95% de -19 a +5). O tamanho da perda é o que explica a reação. |
+| H3. Auditoria e devolução atenuam | **Não confirmada.** Sem efeito em nenhuma especificação (9 devoluções na amostra). |
+| H4. Efeito na chain | **Moeda nativa confirmada** para hacks de pelo menos 5% do TVL da chain (-13% em [0,+5], n = 27). Stablecoins *saem* da chain, ao contrário do previsto. Perda de paridade de até 56% em ativos bridged (Orbit). |
+| H5. Contágio por dependência técnica | **Não confirmada.** Forks da vítima não perdem mais TVL que controles (+0,3 p.p. em [0,+1], IC de -2,0 a +2,6). Sinal fraco de contágio setorial. |
+
+Ranking atual: nas 12 maiores chains, um único protocolo tem de 28% a 78% do TVL DeFi (Lido 49% no Ethereum, Morpho Blue 74% na Base). Morpho Blue e Aave V3 passam de 5% do TVL em 17 e 15 chains.
+
+Todas as decisões metodológicas, especificações registradas antes dos resultados, correções de dados e resultados por fase estão em `docs/decisions.md`.
 
 ## Fontes de dados
 
-Todas públicas e gratuitas: DefiLlama (hacks, protocolos, TVL, preços e stablecoins).
+Todas públicas e gratuitas: DefiLlama (hacks, protocolos, TVL por protocolo e por chain, preços e stablecoins), coletadas em 08/11/2026. O cache bruto (cerca de 600 MB) não é versionado e é recriado por `python -m src.collect.run`. As tabelas processadas são versionadas, exceto `tvl_tokens.parquet` (acima do limite do GitHub).
