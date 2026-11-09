@@ -33,7 +33,15 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Os passos de coleta e análise serão documentados aqui conforme forem implementados.
+### 1. Coleta
+
+```bash
+python -m src.collect.run
+```
+
+Baixa hacks, metadados de protocolos e chains, histórico de TVL dos protocolos atingidos, preços diários (tokens, moedas nativas e benchmarks) e oferta de stablecoins por chain. As respostas brutas ficam em cache em `data/raw/` (JSON com gzip) e nunca são baixadas de novo. As tabelas limpas vão para `data/processed/` em Parquet, e o script termina imprimindo o relatório de cobertura.
+
+Os passos seguintes serão documentados aqui conforme forem implementados.
 
 ## Fontes de dados
 
