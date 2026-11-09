@@ -22,13 +22,13 @@ EVT = (-1, 30)
 EST_MIN_SHARE = 0.9
 
 
-def _covered(dates_by_key: dict, key, day0: pd.Timestamp) -> bool:
+def _covered(dates_by_key: dict, key, day0: pd.Timestamp, est=EST, evt=EVT) -> bool:
     dates = dates_by_key.get(key)
     if dates is None:
         return False
-    est = pd.date_range(day0 + pd.Timedelta(days=EST[0]), day0 + pd.Timedelta(days=EST[1]))
-    evt = pd.date_range(day0 + pd.Timedelta(days=EVT[0]), day0 + pd.Timedelta(days=EVT[1]))
-    return est.isin(dates).mean() >= EST_MIN_SHARE and evt.isin(dates).all()
+    e = pd.date_range(day0 + pd.Timedelta(days=est[0]), day0 + pd.Timedelta(days=est[1]))
+    v = pd.date_range(day0 + pd.Timedelta(days=evt[0]), day0 + pd.Timedelta(days=evt[1]))
+    return e.isin(dates).mean() >= EST_MIN_SHARE and v.isin(dates).all()
 
 
 def build_coverage() -> pd.DataFrame:

@@ -1,0 +1,27 @@
+hack_id,name,recovered_share,users_reimbursed,base,trecho_descricao
+ebc99a55cbc2,Portal (Wormhole),0.00,True,descricao + conhecimento previo,DefiLlama registra 326M devolvidos mas foi a Jump Crypto que repôs os 120k ETH. Nada voltou do atacante
+006ba04d878f,Drift Trade (2022),0.00,True,descricao,Deficit de 14.5M na crise LUNA coberto pelo protocolo. Nao ha atacante
+37da5fdd33a8,Ankr,0.60,True,descricao,Binance froze $3M (de 5M). Ankr reimbursed affected users from company reserves
+976095dc4995,Defrost,1.00,False,descricao,All funds were later returned
+96e0629bb6e8,Platypus Finance,0.02,False,campo DefiLlama,0.2M devolvidos de 8.5M
+aa9e47e10d71,Euler V1,1.00,False,descricao,The hacker returned funds within weeks
+595cd316c614,ParaSpace Lending V1,1.00,False,descricao,BlockSec intercepted the attack and recovered approximately 2900 ETH
+926ee189875d,Sentiment,0.90,False,descricao,Sentiment recovered 90% within days through negotiation
+451f66fd7191,SushiSwap,1.00,False,campo DefiLlama,DefiLlama registra devolucao integral. Descricao nao detalha
+e56ae6f4f5d6,Unizen,0.00,True,descricao,The CEO reimbursed affected users starting March 11
+b2f267b96cc2,DMM Bitcoin,0.00,True,descricao,Exchange cobriu clientes e encerrou atividades
+dcc0beea5445,Banana Gun,0.00,True,descricao,All users were reimbursed from the treasury
+00d6f24aa0f2,Bybit,0.00,True,descricao + conhecimento previo,Bybit cobriu os clientes com caixa e emprestimos. Fundos com o Lazarus nao foram devolvidos
+995a1c718388,KiloEx,0.91,False,campo DefiLlama,6.8M devolvidos de 7.5M
+9dd8e32af6e1,GMX V1 EVM,0.95,False,descricao,Attacker returned funds July 12 keeping a $5M bounty
+92067440470c,Makina,0.81,False,campo DefiLlama,3.4M devolvidos de 4.2M
+ca7a9ebb66c0,Dango,0.78,False,descricao,Team recovered $1.49M in tokens (de 1.9M)
+364897d5582e,Tender Finance,0.94,False,descricao,White-hat negotiated return for $97K bounty (de 1.59M)
+1b64b1361d5d,Curve DEX,0.68,False,descricao,~68% was later recovered
+41e59bbf2822,Mozaic,0.90,False,descricao,90% recovered after funds were frozen on MEXC exchange
+87049f3fda91,Dough Finance,0.10,False,descricao,a white-hat recovered 69.12 ETH (de cerca de 670 ETH)
+8e7f6b17bddc,ThalaSwap,0.98,False,descricao,Thala recovered $25M within 6 hours (de 25.5M)
+b7d2ab2ec09d,zkLend,0.34,False,descricao,Attacker returned ~$3.2M after negotiation (de 9.55M)
+15fd07882ea5,1inch Swap,0.50,False,descricao,Most funds were recovered after negotiation (fracao exata nao informada: codificado como 0.5 no limite)
+3995333a7077,Seedify,0.17,False,descricao,~$200K was frozen at an exchange (de 1.2M)
+075b60809bb1,Volo Vault,0.90,False,descricao,The team recovered ~$3.44M (90%) of funds

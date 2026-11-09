@@ -1,0 +1,37 @@
+hack_id,name,date_defillama,date_validated,status,metodo,fonte,nota
+00d6f24aa0f2,Bybit,2025-02-21,2025-02-21,confirmada,descricao + conhecimento previo,https://www.coindesk.com,Ataque por volta das 14h UTC
+5c2cb190fdf2,Bitget,2026-09-24,2026-09-24,confirmada,descricao (horario UTC explicito),DefiLlama description,Transferencias detectadas as 18:31 UTC
+7e32eb4f1cbc,Drift Trade,2026-04-01,2026-04-01,confirmada,busca web,https://www.coindesk.com/tech/2026/04/02/how-a-solana-feature-designed-for-convenience-let-an-attacker-drain-usd270-million-from-drift,Perda reportada entre 270 e 286 milhoes
+4d5c5831b948,Kelp,2026-04-18,2026-04-18,confirmada,busca web,https://www.theblock.co/post/397988,Algumas fontes citam 18 a 19/04
+2de1fccddd9b,Cetus CLMM,2025-05-22,2025-05-22,confirmada,descricao + conhecimento previo,DefiLlama description,
+aa9e47e10d71,Euler V1,2023-03-13,2023-03-13,confirmada,descricao + conhecimento previo,DefiLlama description,
+ce6337036b90,BitMart,2021-12-04,2021-12-04,confirmada,descricao + conhecimento previo,DefiLlama description,
+1ff37b0fda43,Nomad,2022-08-01,2022-08-01,confirmada,descricao + conhecimento previo,DefiLlama description,Ataque a partir das 21:32 UTC
+1851b391f704,Beanstalk,2022-04-17,2022-04-17,confirmada,descricao + conhecimento previo,DefiLlama description,
+87a293c15143,Compound V2,2021-09-29,2021-09-29,confirmada,descricao + conhecimento previo,DefiLlama description,Proposta 62 ativada em 29/09
+58a016c330ae,BXH,2021-10-30,2021-10-30,confirmada,descricao,DefiLlama description,
+8fda18ea49b3,CREAM Lending,2021-10-27,2021-10-27,confirmada,descricao + conhecimento previo,DefiLlama description,
+5cb6eab1f84f,Balancer V2,2025-11-03,2025-11-03,confirmada,descricao + conhecimento previo,DefiLlama description,
+c10f925e1b5a,Multichain,2023-07-07,2023-07-06,corrigida,busca web,https://unchainedcrypto.com/hack-or-rugpull-multichain-sees-126-million-abnormal-outflows/,Saidas comecam 06/07 as 16:21 UTC e terminam 22:56 UTC
+392fb226c2c2,Tectonic,2026-08-30,2026-08-30,confirmada,busca web,https://www.bitquery.io/investigations/tectonic-exploit-120-million,Perda de cerca de 120 milhoes e rollback da Cronos
+a76f23af289f,Badger DAO,2021-12-02,2021-12-02,confirmada,descricao + conhecimento previo,DefiLlama description,
+afa0e6cf4407,Mango Markets V3,2022-10-11,2022-10-11,confirmada,descricao + conhecimento previo,DefiLlama description,
+c88b24b4c00c,Bitget (bot VOXEL),2025-04-20,2025-04-20,confirmada,descricao,DefiLlama description,
+991c1e46f0c4,Mirror,2021-10-08,2022-05-26,corrigida,busca web,https://www.theblock.co/news/regulation/2022-05-30-a-90-million-defi-exploit-on-terra-went-unnoticed-for-seven-months-149342,Exploit em 08/10/2021 so divulgado em maio de 2022. Data de divulgacao ambigua entre 26 e 31/05 e dentro da crise Terra
+c13de6606998,Phemex,2025-01-23,2025-01-23,confirmada,descricao,DefiLlama description,
+074767f39ddc,Orbit Bridge,2023-12-31,2023-12-31,confirmada,busca web,https://www.theblock.co/post/269809/orbit-chains-bridge-reportedly-hacked-for-81-5-million,Acesso confirmado as 20:52 UTC de 31/12
+bafcde8fd4e4,Qubit,2022-01-28,2022-01-27,corrigida,busca web,https://medium.com/@QubitFin/protocol-exploit-report-305c34540fa3,Primeira transacao as 21:34 UTC de 27/01
+2d51d4cbcc00,Rari Capital,2022-05-01,2022-04-30,corrigida,busca web,https://www.coindesk.com/business/2022/04/30/defi-lender-rari-capitalfei-loses-80m-in-hack/,
+1b64b1361d5d,Curve DEX,2023-07-30,2023-07-30,confirmada,descricao + conhecimento previo,DefiLlama description,
+0b6a4f708994,CoinEx,2023-09-12,2023-09-12,confirmada,descricao,DefiLlama description,
+bd7b47b34373,Cashio,2022-03-23,2022-03-23,confirmada,descricao + conhecimento previo,DefiLlama description,
+5ea6d438ebc4,Radiant V2,2024-10-16,2024-10-16,confirmada,descricao + conhecimento previo,DefiLlama description,
+2a1c6681cd3a,KyberSwap Elastic,2023-11-22,2023-11-22,confirmada,descricao + conhecimento previo,DefiLlama description,
+91b40722ff2d,Bunny,2021-05-19,2021-05-19,confirmada,descricao + conhecimento previo,DefiLlama description,
+9d3e5e6dddb1,CoinDCX,2025-07-19,2025-07-19,confirmada,descricao,DefiLlama description,
+7844020a1091,BingX,2024-09-20,2024-09-19,corrigida,descricao (fuso),DefiLlama description,04:00 de Singapura em 20/09 equivale a 20:00 UTC de 19/09
+9dd8e32af6e1,GMX V1 EVM,2025-07-09,2025-07-09,confirmada,descricao + conhecimento previo,DefiLlama description,
+95ac546c332f,SwissBorg,2025-09-09,2025-09-08,corrigida,busca web,https://www.halborn.com/blog/post/explained-the-swissborg-hack-september-2025,Saques entre 9h e 12h UTC de 08/09
+6fa59fa3dd93,Step Finance,2026-01-31,2026-01-31,confirmada,busca web,https://www.theblock.co/post/390964,
+ec43cf102c81,Humanity,2026-06-08,2026-06-09,corrigida,busca web,https://halborn.com/blog/post/explained-the-humanity-protocol-hack-june-2026,Mints nao autorizados as 02:09 UTC de 09/06
+b73222b34a2a,DxSale,2026-05-28,2026-05-26,corrigida,descricao,DefiLlama description,Descricao informa ataque em 26 e 27/05

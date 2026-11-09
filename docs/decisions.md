@@ -35,3 +35,31 @@ Cada decisão relevante ou ambígua fica registrada aqui com data, contexto e ju
 - O último ponto de preço (09/11/2026) é intradiário e será descartado.
 
 **2026-11-08. Tabelas versionadas.** Todas as tabelas de `data/processed/` são versionadas, exceto `tvl_tokens.parquet` (219 MB, acima do limite de 100 MB por arquivo do GitHub), que é regenerada a partir do cache por `python -m src.collect.run`.
+
+## Fase 2. Amostra e taxonomia
+
+**2026-11-08. Taxonomia pelo mecanismo do ataque.** As 81 técnicas da DefiLlama foram mapeadas em seis categorias (`src/build/taxonomy.py`): lógica de contrato, chave ou infraestrutura, oráculo ou preço, bridge cross-chain, governança e outros. A categoria segue o vetor do ataque e não o tipo de alvo. Um bridge drenado por chave comprometida (Ronin, Harmony) é chave ou infraestrutura, e ser bridge é a dummy separada `bridge_hack`. Assim H2 (operacional contra código) e H4 (bridge) não se confundem. Agrupamento grosso para H2: operacional (chave ou infraestrutura e governança), código (lógica de contrato e bridge), econômico (oráculo ou preço) e outros.
+
+**2026-11-08. Casos de fronteira da taxonomia.**
+- Engenharia social (phishing, malware, falso recrutador) entra em chave ou infraestrutura, pois a falha é operacional.
+- "Access Control" em exchange centralizada vai para chave ou infraestrutura, porque CEX não tem contrato com bug: é invasão de sistema.
+- "Donation Attack" fica em lógica de contrato (falha de contabilidade de cotas), embora envolva mover um preço interno.
+- "Flashloan Governance Attack" fica em governança, conforme a definição da categoria.
+- "MEV Bot Drained" e "Market Maker Bot Exploited" vão para outros, pois o alvo é um robô de negociação e não um protocolo.
+- Rugpull é fraude interna e não falha de segurança: fica em outros com a flag `is_rugpull`.
+- Kelp DAO (abr/2026) foi mantido como bridge. O vetor imediato foi comprometer nós RPC da LayerZero, mas o que permitiu o ataque foi a configuração de verificador único (1 de 1 DVN). É ambíguo e será testado em robustez.
+
+**2026-11-08. Revisões manuais da categoria.** Quando a descrição da própria DefiLlama contradiz a classificação, a categoria foi revista evento a evento em `src/build/taxonomy_overrides.csv`, com justificativa. Para encontrar os casos, todos os 193 eventos da amostra de análise passaram por busca de termos (chave privada, multisig, phishing, malware, pré-assinatura) e os resultados foram lidos um a um. Cinco revisões: Orbit Bridge, Drift, Purrlend, Taiko Bridge e DxSale, todos para chave ou infraestrutura. A categoria pela regra automática fica em `category_rule` para teste de robustez.
+
+**2026-11-08. Validação de datas.** Os 35 maiores eventos da amostra de análise foram conferidos (`docs/date_validation.csv`, com método e fonte). Convenção: dia 0 é o dia UTC em que o incidente começou ou, se ficou oculto, o dia em que foi divulgado. Oito datas foram corrigidas: Multichain, Qubit, Rari Capital, SwissBorg e Humanity (um dia de diferença, confirmado em fontes externas), BingX (horário de Singapura convertido para UTC), DxSale (descrição) e Mirror (exploit de outubro de 2021 só divulgado em maio de 2022, data de divulgação ambígua entre 26 e 31/05, e dentro da crise Terra).
+
+**2026-11-08. Critérios da amostra.** Fixados antes de qualquer resultado:
+- Base: hacks a partir de 01/01/2020 com perda de pelo menos US$ 1 milhão (584 eventos).
+- Amostra de preço: preço em pelo menos 90% dos dias de [-120,-11] e em todos os dias de [-1,+30].
+- Amostra de TVL: quantidades por token em pelo menos 90% dos dias de [-60,-11] e em todos os dias de [-1,+30], e TVL(-1) de pelo menos US$ 1 milhão. A linha de base do TVL é mais curta que a do preço porque o fluxo anormal é medido contra a média de fluxo pré-evento, sem modelo de mercado. TVL(-1) mínimo evita eventos em que a perda supera o próprio TVL medido.
+- Sem filtro de liquidez: a API de preços não fornece volume, e a fração de retornos zero na janela de estimação não discrimina (mediana 0, máximo 5,5%), pois os preços são agregados. Fica como limitação.
+- Flags `overlap_token` e `overlap_protocol` marcam eventos com outro hack do mesmo token ou protocolo em [-120,+30], para exclusão na robustez.
+
+**2026-11-08. Devolução de fundos.** O campo `returnedFunds` da DefiLlama só está preenchido em 28 dos 1.341 registros e omite casos conhecidos (Curve 2023, ThalaSwap). A fração recuperada foi codificada manualmente a partir das descrições dos eventos da amostra de análise (`src/build/recovery_manual.csv`). O campo da DefiLlama também mistura duas coisas: recuperação junto ao atacante (Euler, GMX) e ressarcimento de usuários com caixa do protocolo ou de terceiros (Bybit, Wormhole pela Jump, Ankr). São economicamente diferentes, pois no ressarcimento a perda continua e passa para o protocolo. Todos os registros da DefiLlama na base foram recodificados à mão em duas variáveis: `recovered_share` (fração devolvida pelo atacante ou interceptada) e `users_reimbursed`. A codificação manual tem precedência sobre o campo da DefiLlama. A variável binária principal é `funds_returned` = fração recuperada de pelo menos 50%. A devolução costuma ocorrer dias ou semanas depois do hack, então a Fase 4 deve testar H3 em janelas compatíveis com a data da devolução.
+
+**2026-11-08. Auditoria.** O campo `audits` de `/protocols` reflete o estado atual e não a data do hack. Um protocolo auditado depois do incidente aparece como auditado. É uma limitação para H3, a reportar. Não há fonte pública gratuita com a data das auditorias.

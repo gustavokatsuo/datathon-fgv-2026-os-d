@@ -41,6 +41,14 @@ python -m src.collect.run
 
 Baixa hacks, metadados de protocolos e chains, histórico de TVL dos protocolos atingidos, preços diários (tokens, moedas nativas e benchmarks) e oferta de stablecoins por chain. As respostas brutas ficam em cache em `data/raw/` (JSON com gzip) e nunca são baixadas de novo. As tabelas limpas vão para `data/processed/` em Parquet, e o script termina imprimindo o relatório de cobertura.
 
+### 2. Amostra e taxonomia
+
+```bash
+python -m src.build.sample
+```
+
+Aplica a taxonomia de falhas (`src/build/taxonomy.py`, com revisões manuais em `src/build/taxonomy_overrides.csv`), as datas validadas (`docs/date_validation.csv`) e a codificação de devolução de fundos (`src/build/recovery_manual.csv`). Gera `data/processed/events.parquet`, com as flags de amostra, e a tabela descritiva por categoria em `data/processed/table_categories.csv`.
+
 Os passos seguintes serão documentados aqui conforme forem implementados.
 
 ## Fontes de dados

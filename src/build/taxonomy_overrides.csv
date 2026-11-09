@@ -1,0 +1,6 @@
+hack_id,name,categoria_defillama,category,justificativa
+074767f39ddc,Orbit Bridge,Input Validation/Signature Verification Flaw,key_infra,Descricao: 7 de 10 chaves privadas do multisig comprometidas. Nao houve bug de verificacao de assinatura
+7e32eb4f1cbc,Drift Trade,Access Control/Proxy Upgrade Hijack,key_infra,Engenharia social sobre membros do Security Council (multisig 2 de 5) com durable nonces. Fontes indicam ausencia de bug de contrato
+4b389f4dff20,Purrlend,Access Control/Caller Impersonation,key_infra,Descricao: multisig administrativo 2 de 3 comprometido
+d9c5de64a1e8,Taiko Bridge,Bridge & Cross-Chain/Forged Proof,key_infra,Chave de assinatura SGX vazada no GitHub permitiu forjar provas. Mantida a flag bridge_hack
+b73222b34a2a,DxSale,Rugpull/Liquidity Rug,key_infra,Descricao indica atacante externo usando chave de owner desprotegida em contrato legado e nao fraude interna
