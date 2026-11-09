@@ -1,0 +1,5 @@
+hack_id,name,asset_id,asset_label,reference_id,reference_label,nota
+074767f39ddc,Orbit Bridge,klaytn:0xcee8faf64bb97a73bb51e115aa89c17ffa8dd167,oUSDT (Klaytn),coingecko:tether,USDT,USDT bridged pela Orbit para a Klaytn
+1ff37b0fda43,Nomad,coingecko:usd-coin-nomad,madUSDC,coingecko:usd-coin,USDC,USDC bridged pela Nomad (Moonbeam e Evmos)
+680ac2289f0f,Heco Bridge,heco:0x64ff637fb478863b7468bc97d30a5bf3a428a1fd,ETH (HECO),coingecko:ethereum,ETH,ETH bridged para a HECO
+4d5c5831b948,Kelp,coingecko:kelp-dao-restaked-eth,rsETH,coingecko:ethereum,ETH,Token de restaking. Razao rsETH/ETH tem tendencia de alta pela remuneracao: desvio medido contra o nivel do dia -1

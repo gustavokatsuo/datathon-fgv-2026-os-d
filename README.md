@@ -68,6 +68,15 @@ python -m src.analysis.figures_phase4  # CAR por tipo de falha
 
 Coeficientes em `data/processed/cross_section_main.csv` e `data/processed/cross_section_robust.csv`.
 
+### 5. Nível da blockchain (H4)
+
+```bash
+python -m src.analysis.chain_level     # moeda nativa, stablecoins e paridade de wrapped
+python -m src.analysis.figures_phase5
+```
+
+O TVL histórico das chains e os preços dos ativos bridged são coletados por `python -m src.collect.run` (a lista de ativos está em `src/build/bridge_assets.csv`). Resultados em `data/processed/chain_level_study.csv`, `chain_level_dose.csv` e `bridge_depeg_cases.csv`.
+
 Os passos seguintes serão documentados aqui conforme forem implementados.
 
 ## Fontes de dados

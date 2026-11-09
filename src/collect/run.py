@@ -10,6 +10,7 @@ import logging
 
 import pandas as pd
 
+from src.collect.chain_level import collect_bridge_assets, collect_chain_tvl
 from src.collect.coverage import build_coverage, summarize
 from src.collect.metadata import collect_chains, collect_hacks, collect_protocols
 from src.collect.prices import coin_universe, collect_prices
@@ -29,9 +30,13 @@ def main() -> None:
     ptok = pd.read_parquet(PROCESSED_DIR / "protocol_tokens.parquet")
     collect_prices(coin_universe(ptok, hacks, chains))
     collect_stablecoins(hacks, chains)
+    collect_chain_tvl(hacks, chains)
 
     cov = build_coverage()
     print(summarize(cov).to_string())
+    # depende das datas validadas da Fase 2
+    if (PROCESSED_DIR / "events.parquet").exists():
+        collect_bridge_assets(pd.read_parquet(PROCESSED_DIR / "events.parquet"))
 
 
 if __name__ == "__main__":
