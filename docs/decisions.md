@@ -207,3 +207,11 @@ Robustez desta fase: variável dependente winsorizada em 1% e 99%, regressão me
 **2026-11-08. Formato.** 10 slides em Beamer (tema metropolis), compilados com `latexmk -pdf` em `slides/main.pdf`. Sem travessões nem ponto e vírgula nos textos, conforme as convenções do projeto.
 
 **2026-11-08. Complemento da correção da Fase 4.** O efeito do tamanho em CAR[0,+30] citado como -8,4 p.p. (p = 0,03) também vem do modelo com log da perda. Na especificação principal, log(perda/TVL), o coeficiente é -6,7 p.p. (p = 0,065). O slide 6 mostra os dois.
+
+## Pós-entrega
+
+**2026-11-16. Exclusões na estimação que faltavam no log.** A tabela descritiva (`table_categories.csv`) conta 134 eventos na amostra de preço e 127 na de TVL, mas os estudos de evento usam 132 e 125. As diferenças vêm de exclusões feitas pelos próprios scripts na estimação, conferidas rodando o código:
+- Preço: o Rubic (quebra de nível, já registrado na Fase 3) e o KITE Foundation (05/08/2026). O KITE é um alvo do tipo carteira marcado como alvo da própria chain, então recebeu o ETH como token. Com o benchmark ETH (e com a moeda nativa, que também é o ETH) o evento é pulado, pois o benchmark coincide com o token. Ele entra apenas na robustez com o índice DeFi (n = 133). A atribuição é discutível, porque um hack de carteira de US$ 13 milhões não é um choque sobre o ETH, mas o peso no resultado é desprezível. Não foi corrigida depois da entrega para não alterar os números apresentados.
+- TVL: Gamma (04/01/2024) e ALEX (06/06/2025) saem em `src/analysis/event_tvl.py` por linha de base insuficiente (menos de 90% dos dias de [-60,-11] com fluxo calculável), embora passem no critério de cobertura de quantidades da amostra.
+
+**2026-11-16. Limiar do H4 na apresentação.** Os slides destacam o corte de 5% do TVL da chain, que estava registrado como robustez. A especificação principal era 1%, em que o efeito é mais fraco (n = 54, -2,6% em [0,+1] sem significância e -6,2% em [0,+5], t = -2,5). A evidência que não depende de corte é a dose-resposta contínua (p = 0,04 em [0,+1] e 0,01 em [0,+5]). Essa ressalva foi preparada para as perguntas da banca e fica registrada aqui.
